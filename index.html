@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Marco Antônio | Portfólio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div id="loader">
+  <div class="spinner"></div>
+</div>
+
+
+<nav>
+  <div class="logo">Marco Antônio</div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <div class="menu" id="menu">
+    <a href="#projetos">Ver Projetos</a>
+    <a href="https://github.com/markinferreira32-source" target="_blank">GitHub</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</nav>
+
+
+<header class="hero">
+  <h1>Marco Antônio</h1>
+  <p>Desenvolvedor Web Júnior | HTML • CSS • JavaScript</p>
+  <div class="hero-buttons">
+    <a href="#projetos">Ver Projetos</a>
+    <a href="https://github.com/markinferreira32-source" target="_blank">GitHub</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</header>
+
+<section class="sobre">
+  <img src="imagem/e08befa8-18b9-47d7-9911-7664d53dfc28.png">
+  <div>
+    <h2>Sobre mim</h2>
+    <p>
+      Sou estudante de Análise e Desenvolvimento de Sistemas, com foco em lógica, programação e desenvolvimento de soluções. Tenho facilidade de aprendizado e busco evoluir constantemente por meio de estudos e projetos práticos, sempre com o objetivo de transformar conhecimento em soluções eficientes.
+    </p>
+  </div>
+</section>
+
+<section class="tecnologias">
+  <h2>🚀 Tecnologias</h2>
+
+  <div class="tech-list">
+    <span class="tech-item">HTML</span>
+    <span class="tech-item">CSS</span>
+    <span class="tech-item">JavaScript</span>
+    <span class="tech-item">Git</span>
+    <span class="tech-item">GitHub</span>
+    <span class="tech-item">Netlify</span>
+    <span class="tech-item">Linguagem C</span>
+  </div>
+</section>
+
+
+<section id="projetos" class="projetos">
+  <h2>Projetos</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="imagem/capa site.png">
+      <h3>Studio Isadora</h3>
+      <p>Website profissional feito em HTML, CSS e JavaScript, hospedado no Netlify.</p>
+      <a href="https://studio-isadorarocha.netlify.app" target="_blank">Ver site</a>
+    </div>
+
+    <div class="card purple">
+      <img src="imagem/capa cadastro em c.png">
+      <h3>Cadastro em C</h3>
+      <p>Sistema em C com menu, validação de dados e lógica estruturada.</p>
+      <a href="https://github.com/markinferreira32-source/cadastro-em-c" target="_blank">Ver GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+  <div class="hero-buttons botao-final">
+    <a href="https://wa.me/5547996140249" target="_blank">Vamos Conversar?</a>
+  </div>
+
+<footer>
+  © 2026 — Marco Antônio
+</footer>
+
+<script>
+window.onload = () => {
+  document.getElementById("loader").style.display = "none";
+};
+</script>
+
+
+<script src="script.js"></script>
+
+<!-- scripts da animação -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 50 },
+    color: { value: "#38bdf8" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4 },
+    size: { value: 2 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#38bdf8",
+      opacity: 0.2,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "grab" }
+    }
+  },
+  retina_detect: true
+});
+</script>
+
+</body>
+</html>
