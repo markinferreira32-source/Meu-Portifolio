@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Marco Antônio | Desenvolvedor Web</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-bar"></div>
+    <span class="loader-text">Iniciando...</span>
+  </div>
+</div>
+
+<div class="grid-bg"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo">M<span class="accent">.</span>A</div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="menu" id="menu">
+      <a href="#sobre" onclick="closeMenu()">Sobre</a>
+      <a href="#tecnologias" onclick="closeMenu()">Skills</a>
+      <a href="#projetos" onclick="closeMenu()">Projetos</a>
+      <a href="https://github.com/markinferreira32-source" target="_blank" class="nav-cta">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-label"><span class="dot"></span> Disponível para projetos</p>
+    <h1 class="hero-name" id="glitch-text" data-text="Marco Antônio">Marco Antônio</h1>
+    <p class="hero-sub">Desenvolvedor Web Júnior — <span id="typing" class="typing-text"></span><span class="cursor-blink">|</span></p>
+    <div class="hero-buttons">
+      <a href="#projetos" class="btn-primary">Ver Projetos</a>
+      <a href="https://github.com/markinferreira32-source" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="hero-deco">
+    <div class="deco-ring r1"></div>
+    <div class="deco-ring r2"></div>
+    <div class="deco-ring r3"></div>
+    <div class="deco-code">
+      <div class="code-line"><span class="code-tag">&lt;developer&gt;</span></div>
+      <div class="code-line code-indent"><span class="code-fn">build</span><span class="code-sym">();</span></div>
+      <div class="code-line code-indent"><span class="code-fn">deploy</span><span class="code-sym">();</span></div>
+      <div class="code-line"><span class="code-tag">&lt;/developer&gt;</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</header>
+
+<section class="sobre reveal" id="sobre">
+  <div class="section-label"><span class="label-num">01</span> Sobre mim</div>
+  <div class="sobre-inner">
+    <div class="sobre-img-wrap">
+      <img src="imagem/minha foto.png" alt="Marco Antônio">
+      <div class="img-border"></div>
+    </div>
+    <div class="sobre-text">
+      <h2>Quem sou eu</h2>
+      <p>Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong>, com foco em lógica, programação e desenvolvimento de soluções. Tenho facilidade de aprendizado e busco evoluir constantemente por meio de estudos e projetos práticos, sempre com o objetivo de transformar conhecimento em soluções eficientes.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num" data-target="4">0</span>
+          <span class="stat-label">Projetos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="3">0</span>
+          <span class="stat-label">Sites no ar</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="7">0</span>
+          <span class="stat-label">Tecnologias</span>
+        </div>
+      </div>
+      <a href="https://wa.me/5547996140249" target="_blank" class="btn-primary">Vamos conversar →</a>
+    </div>
+  </div>
+</section>
+
+<section class="tecnologias reveal" id="tecnologias"> 
+  <div class="section-label"><span class="label-num">02</span> Stack</div>
+  <h2>Tecnologias</h2>
+
+  <!-- 💻 Tecnologias principais -->
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-icon">⟨/⟩</div><span>HTML</span></div>
+    <div class="tech-card"><div class="tech-icon">#</div><span>CSS</span></div>
+    <div class="tech-card"><div class="tech-icon">JS</div><span>JavaScript</span></div>
+    <div class="tech-card"><div class="tech-icon">🟢</div><span>Node.js</span></div>
+  </div>
+
+  <!-- 🔧 Ferramentas -->
+  <h3>Ferramentas</h3>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-icon">⌥</div><span>Git</span></div>
+    <div class="tech-card"><div class="tech-icon">◈</div><span>GitHub</span></div>
+  </div>
+
+  <!-- ☁️ Deploy -->
+  <h3>Deploy</h3>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-icon">▲</div><span>Netlify</span></div>
+    <div class="tech-card"><div class="tech-icon">⬢</div><span>Render</span></div>
+    <div class="tech-card"><div class="tech-icon">🚂</div><span>Railway</span></div>
+  </div>
+
+  <!-- 🔗 Integrações -->
+  <h3>Integrações</h3>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-icon">🔌</div><span>APIs REST</span></div>
+    <div class="tech-card"><div class="tech-icon">💳</div><span>Asaas</span></div>
+  </div>
+
+  <!-- 📊 Produtividade -->
+  <h3>Produtividade</h3>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-icon">📊</div><span>Excel</span></div>
+    <div class="tech-card"><div class="tech-icon">📄</div><span>Word</span></div>
+  </div>
+
+  <!-- 🧠 Outros -->
+  <h3>Outros conhecimentos</h3>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-icon">🧠</div><span>Lógica de programação</span></div>
+    <div class="tech-card"><div class="tech-icon">C</div><span>Linguagem C</span></div>
+  </div>
+
+</section>
+
+<section class="projetos reveal" id="projetos">
+  <div class="section-label"><span class="label-num">03</span> Trabalhos</div>
+  <h2>Projetos</h2>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <div class="proj-num">01</div>
+      <div class="proj-img-wrap">
+        <img src="imagem/nova capa site.png" alt="Studio Isadora">
+        <div class="proj-overlay">
+          <a href="https://studio-isadorarocha.netlify.app" target="_blank">Ver Projeto ↗</a>
+        </div>
+      </div>
+      <div class="proj-info">
+        <h3>Studio Isadora</h3>
+        <p>Website profissional desenvolvido em HTML, CSS e JavaScript, hospedado no Netlify.</p>
+        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>WhatsApp</span><span>Print</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <div class="proj-img-wrap no-img">
+        <img src="imagem/capa sorveteria.png" alt="Site Sorveteria">
+        <div class="proj-overlay">
+          <a href="https://markinferreira32-source.github.io/site-sorveteria/" target="_blank">Ver Projeto ↗</a>
+        </div>
+      </div>
+      <div class="proj-info">
+        <h3>Site Sorveteria</h3>
+        <p>Landing page responsiva com carrinho de pedidos desenvolvido em JavaScript e integração com WhatsApp para envio automatizado de mensagens, simulando um fluxo real de finalização de compra.</p>
+        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>WhatsApp</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">03</div>
+      <div class="proj-img-wrap no-img">
+        <img src="imagem/capa site encontro.png" alt="Site encontroadpv2026">
+        <div class="proj-overlay">
+          <a href="https://encontroadpv2026.netlify.app" target="_blank">Ver Projeto ↗</a>
+        </div>
+      </div>
+      <div class="proj-info">
+        <h3>Encontro de Casais 2026</h3>
+        <p>Landing page de evento com formulário multietapas e integração de pagamento via PIX e boleto (Asaas).</p>
+        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>Asaas</span><span>Node.js</span><span>Render</span></div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-num">04</div>
+      <div class="proj-img-wrap no-img">
+        <img src="imagem/capa controle de estoque.png" alt="Contro de Estoque">
+        <div class="proj-overlay">
+          <a href="https://stirring-fenglisu-027ebb.netlify.app" target="_blank">Ver Projeto ↗</a>
+        </div>
+      </div>
+      <div class="proj-info">
+        <h3>Controle de Estoque</h3>
+        <p>Sistema web para cadastro, consulta e movimentação de peças em estoque.</p>
+        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <p class="cta-eyebrow">— Pronto para começar?</p>
+    <h2>Tem um projeto em mente?</h2>
+    <a href="https://wa.me/5547996140249" target="_blank" class="btn-primary btn-lg">Entrar em contato ↗</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="logo">M<span class="accent">.</span>A</span>
+    <span class="footer-copy">© 2026 — Marco Antônio</span>
+    <div class="footer-links">
+      <a href="https://github.com/markinferreira32-source" target="_blank">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 1000);
+});
+
+if (typeof particlesJS !== 'undefined') {
+  particlesJS("grid-bg", {
+    particles: {
+      number: { value: 30 },
+      color: { value: "#00d4ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.15 },
+      size: { value: 1.5 },
+      line_linked: { enable: true, distance: 160, color: "#00d4ff", opacity: 0.08, width: 1 },
+      move: { enable: true, speed: 0.6 }
+    },
+    interactivity: {
+      events: { onhover: { enable: true, mode: "grab" } },
+      modes: { grab: { distance: 180, line_linked: { opacity: 0.25 } } }
+    },
+    retina_detect: true
+  });
+}
+</script>
+</body>
+</html>
