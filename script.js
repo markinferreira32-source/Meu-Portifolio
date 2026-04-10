@@ -1,16 +1,17 @@
-
 // ===========================
 // CUSTOM CURSOR
 // ===========================
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursor-follower');
 
-if (cursor && follower) {
+// ✅ Só roda em desktop
+if (window.innerWidth > 768 && cursor && follower) {
   let mx = 0, my = 0, fx = 0, fy = 0;
 
-  document.addEventListener('mousemove', e => {
+  document.addEventListener('mousemove', (e) => {
     mx = e.clientX;
     my = e.clientY;
+
     cursor.style.left = mx + 'px';
     cursor.style.top = my + 'px';
   });
@@ -18,11 +19,15 @@ if (cursor && follower) {
   function animateFollower() {
     fx += (mx - fx) * 0.12;
     fy += (my - fy) * 0.12;
+
     follower.style.left = fx + 'px';
     follower.style.top = fy + 'px';
+
     requestAnimationFrame(animateFollower);
   }
+
   animateFollower();
+
 
   document.querySelectorAll('a, button, .tech-card, .proj-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -198,3 +203,30 @@ projCards.forEach(card => {
 });
 const projSection = document.querySelector('.projetos');
 if (projSection) projObserver.observe(projSection);
+
+if (window.innerWidth <= 768) {
+  // mostra tudo sem depender de animação
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('visible');
+  });
+
+  document.querySelectorAll('.tech-card, .proj-card').forEach(el => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+}
+
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('menu');
+  const hamburger = document.getElementById('hamburger');
+
+  // se clicou fora do menu E fora do botão
+  if (
+    menu.classList.contains('active') &&
+    !menu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    menu.classList.remove('active');
+    hamburger.classList.remove('open');
+  }
+});

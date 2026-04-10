@@ -230,7 +230,7 @@ nav.scrolled {
   align-items: center;
   position: relative;
   padding: 0 60px;
-  overflow: hidden;
+  overflow: visible;
 }
 .hero::before {
   content: '';
@@ -834,26 +834,16 @@ footer {
 /* ===========================
    RESPONSIVE
 =========================== */
-@media (max-width: 900px) {
-  .hero-deco { display: none; }
-  .proj-grid { grid-template-columns: 1fr; }
-  .sobre-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-  .stats-row { justify-content: center; }
-  .sobre-text .btn-primary { margin: 0 auto; display: block; width: fit-content; }
-}
-
 @media (max-width: 768px) {
-  body { cursor: auto; }
-  .cursor, .cursor-follower { display: none; }
-  .nav-inner { padding: 18px 24px; }
-  .hamburger { display: flex; }
+
   .menu {
-    display: none;
+    display: flex;
     position: fixed;
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     width: 75vw;
     max-width: 320px;
-    height: 100vh;
+    height: 100dvh;
     background: rgba(8,13,23,0.97);
     backdrop-filter: blur(20px);
     border-left: 1px solid var(--border);
@@ -863,19 +853,48 @@ footer {
     gap: 32px;
     padding: 0 40px;
     z-index: 400;
-    transition: transform 0.4s ease;
+
     transform: translateX(100%);
+    transition: transform 0.4s ease;
+
+    pointer-events: none;
+    opacity: 0;
   }
+
   .menu.active {
-    display: flex;
     transform: translateX(0);
+    pointer-events: auto;
+    opacity: 1;
   }
+
   .menu a { font-size: 1rem; }
 
   .hero { padding: 0 24px; align-items: flex-end; padding-bottom: 120px; }
   .hero-name { font-size: clamp(2.8rem, 12vw, 4rem); }
   .scroll-hint { left: 24px; }
   section { padding: 80px 24px; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+
+  .footer-inner { 
+    flex-direction: column; 
+    gap: 12px; 
+    text-align: center; 
+  }
+
   footer { padding: 30px 24px; }
+}
+
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hamburger span {
+  transition: all 0.3s ease;
 }
