@@ -2,232 +2,196 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Marco Antônio | Desenvolvedor Web</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Marco Antônio | Desenvolvedor Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#020617;color:#e2e8f0;line-height:1.6}
+
+.container{max-width:1100px;margin:auto;padding:20px}
+
+/* NAV */
+nav{position:fixed;width:100%;top:0;left:0;background:rgba(2,6,23,0.7);backdrop-filter:blur(10px);z-index:1000}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;max-width:1100px;margin:auto}
+.logo{font-weight:700}
+.nav-links a{margin-left:20px;color:#e2e8f0;text-decoration:none;font-size:.9rem}
+
+/* HERO */
+header{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+header h1{font-size:3rem}
+header p{margin:15px 0;color:#94a3b8}
+
+.btn{display:inline-block;margin-top:20px;padding:12px 25px;border-radius:8px;background:#38bdf8;color:#020617;text-decoration:none;font-weight:600;transition:.3s}
+.btn:hover{transform:scale(1.05)}
+
+section{padding:100px 20px}
+
+h2{font-size:2rem;margin-bottom:20px}
+
+.grid{display:grid;gap:20px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about img{width:100%;border-radius:12px}
+
+.skills{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.skill{background:#0f172a;padding:20px;border-radius:10px;text-align:center;transition:.3s;border:1px solid #1e293b}
+.skill:hover{transform:translateY(-5px);border-color:#38bdf8}
+
+.projects{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:#0f172a;border-radius:12px;overflow:hidden;transition:.3s;border:1px solid #1e293b}
+.card:hover{transform:translateY(-10px) scale(1.02)}
+.card img{width:100%}
+.card-body{padding:20px}
+.card-body p{color:#94a3b8;font-size:.9rem}
+
+/* WHATS FLOAT */
+.whats{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px 18px;
+border-radius:50%;
+font-size:18px;
+text-decoration:none;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+footer{text-align:center;padding:40px;color:#64748b}
+
+@media(max-width:768px){
+.about{grid-template-columns:1fr}
+header h1{font-size:2.2rem}
+.nav-links{display:none}
+}
+</style>
 </head>
 <body>
 
-<div id="loader">
-  <div class="loader-inner">
-    <div class="loader-bar"></div>
-    <span class="loader-text">Iniciando...</span>
-  </div>
-</div>
-
-<div class="grid-bg"></div>
-<canvas id="particles-canvas"></canvas>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursor-follower"></div>
-
-<nav id="navbar">
+<nav>
   <div class="nav-inner">
-    <div class="logo">M<span class="accent">.</span>A</div>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="menu" id="menu">
-      <a href="#sobre" onclick="closeMenu()">Sobre</a>
-      <a href="#tecnologias" onclick="closeMenu()">Skills</a>
-      <a href="#projetos" onclick="closeMenu()">Projetos</a>
-      <a href="https://github.com/markinferreira32-source" target="_blank" class="nav-cta">GitHub ↗</a>
+    <div class="logo">Marco.</div>
+    <div class="nav-links">
+      <a href="#">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
     </div>
   </div>
 </nav>
 
-<header class="hero" id="hero">
-  <div class="hero-content">
-    <p class="hero-label"><span class="dot"></span> Disponível para projetos</p>
-    <h1 class="hero-name" id="glitch-text" data-text="Marco Antônio">Marco Antônio</h1>
-    <p class="hero-sub">Desenvolvedor Web Júnior — <span id="typing" class="typing-text"></span><span class="cursor-blink">|</span></p>
-    <div class="hero-buttons">
-      <a href="#projetos" class="btn-primary">Ver Projetos</a>
-      <a href="https://github.com/markinferreira32-source" target="_blank" class="btn-ghost">GitHub ↗</a>
-    </div>
-  </div>
-  <div class="hero-deco">
-    <div class="deco-ring r1"></div>
-    <div class="deco-ring r2"></div>
-    <div class="deco-ring r3"></div>
-    <div class="deco-code">
-      <div class="code-line"><span class="code-tag">&lt;developer&gt;</span></div>
-      <div class="code-line code-indent"><span class="code-fn">build</span><span class="code-sym">();</span></div>
-      <div class="code-line code-indent"><span class="code-fn">deploy</span><span class="code-sym">();</span></div>
-      <div class="code-line"><span class="code-tag">&lt;/developer&gt;</span></div>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>scroll</span>
+<header>
+  <div>
+    <h1 id="typing"></h1>
+    <p>Desenvolvedor Web focado em resultados</p>
+    <a href="#projetos" class="btn">Ver Projetos</a>
   </div>
 </header>
 
-<section class="sobre reveal" id="sobre">
-  <div class="section-label"><span class="label-num">01</span> Sobre mim</div>
-  <div class="sobre-inner">
-    <div class="sobre-img-wrap">
-      <img src="imagem/minha foto.png" alt="Marco Antônio">
-      <div class="img-border"></div>
-    </div>
-    <div class="sobre-text">
-      <h2>Quem sou eu</h2>
-      <p>Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong>, com foco em lógica, programação e desenvolvimento de soluções. Tenho facilidade de aprendizado e busco evoluir constantemente por meio de estudos e projetos práticos, sempre com o objetivo de transformar conhecimento em soluções eficientes.</p>
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat-num" data-target="4">0</span>
-          <span class="stat-label">Projetos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="3">0</span>
-          <span class="stat-label">Sites no ar</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num" data-target="7">0</span>
-          <span class="stat-label">Tecnologias</span>
-        </div>
-      </div>
-      <a href="https://wa.me/5547996140249" target="_blank" class="btn-primary">Vamos conversar →</a>
-    </div>
+<section class="container reveal">
+  <h2>Sobre mim</h2>
+  <div class="about">
+    <img src="imagem/minha foto.png">
+    <p>Sou estudante de Análise e Desenvolvimento de Sistemas com foco em desenvolvimento web. Crio sites modernos, rápidos e focados em conversão de clientes.</p>
   </div>
 </section>
 
-<section class="tecnologias reveal" id="tecnologias"> 
-  <div class="section-label"><span class="label-num">02</span> Stack</div>
-  <h2>Tecnologias</h2>
-
-  <!-- 💻 Tecnologias principais -->
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-icon">⟨/⟩</div><span>HTML</span></div>
-    <div class="tech-card"><div class="tech-icon">#</div><span>CSS</span></div>
-    <div class="tech-card"><div class="tech-icon">JS</div><span>JavaScript</span></div>
-    <div class="tech-card"><div class="tech-icon">🟢</div><span>Node.js</span></div>
+<section class="container reveal">
+  <h2>Skills</h2>
+  <div class="grid skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Node.js</div>
+    <div class="skill">Git</div>
+    <div class="skill">GitHub</div>
   </div>
-
-  <!-- 🔧 Ferramentas -->
-  <h3>Ferramentas</h3>
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-icon">⌥</div><span>Git</span></div>
-    <div class="tech-card"><div class="tech-icon">◈</div><span>GitHub</span></div>
-  </div>
-
-  <!-- ☁️ Deploy -->
-  <h3>Deploy</h3>
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-icon">▲</div><span>Netlify</span></div>
-    <div class="tech-card"><div class="tech-icon">⬢</div><span>Render</span></div>
-    <div class="tech-card"><div class="tech-icon">🚂</div><span>Railway</span></div>
-  </div>
-
-  <!-- 🔗 Integrações -->
-  <h3>Integrações</h3>
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-icon">🔌</div><span>APIs REST</span></div>
-    <div class="tech-card"><div class="tech-icon">💳</div><span>Asaas</span></div>
-  </div>
-
-  <!-- 📊 Produtividade -->
-  <h3>Produtividade</h3>
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-icon">📊</div><span>Excel</span></div>
-    <div class="tech-card"><div class="tech-icon">📄</div><span>Word</span></div>
-  </div>
-
-  <!-- 🧠 Outros -->
-  <h3>Outros conhecimentos</h3>
-  <div class="tech-grid">
-    <div class="tech-card"><div class="tech-icon">🧠</div><span>Lógica de programação</span></div>
-    <div class="tech-card"><div class="tech-icon">C</div><span>Linguagem C</span></div>
-  </div>
-
 </section>
 
-<section class="projetos reveal" id="projetos">
-  <div class="section-label"><span class="label-num">03</span> Trabalhos</div>
+<section class="container reveal" id="projetos">
   <h2>Projetos</h2>
-  <div class="proj-grid">
+  <div class="grid projects">
 
-    <div class="proj-card">
-      <div class="proj-num">01</div>
-      <div class="proj-img-wrap">
-        <img src="imagem/nova capa site.png" alt="Studio Isadora">
-        <div class="proj-overlay">
-          <a href="https://studio-isadorarocha.netlify.app" target="_blank">Ver Projeto ↗</a>
-        </div>
-      </div>
-      <div class="proj-info">
+    <div class="card">
+      <img src="imagem/nova capa site.png">
+      <div class="card-body">
         <h3>Studio Isadora</h3>
-        <p>Website profissional desenvolvido em HTML, CSS e JavaScript, hospedado no Netlify.</p>
-        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>WhatsApp</span><span>Print</span></div>
+        <p>Website profissional moderno.</p>
+        <a href="https://studio-isadorarocha.netlify.app" target="_blank" class="btn">Ver</a>
       </div>
     </div>
 
-    <div class="proj-card">
-      <div class="proj-num">02</div>
-      <div class="proj-img-wrap no-img">
-        <img src="imagem/capa sorveteria.png" alt="Site Sorveteria">
-        <div class="proj-overlay">
-          <a href="https://markinferreira32-source.github.io/site-sorveteria/" target="_blank">Ver Projeto ↗</a>
-        </div>
-      </div>
-      <div class="proj-info">
+    <div class="card">
+      <img src="imagem/capa sorveteria.png">
+      <div class="card-body">
         <h3>Site Sorveteria</h3>
-        <p>Landing page responsiva com carrinho de pedidos desenvolvido em JavaScript e integração com WhatsApp para envio automatizado de mensagens, simulando um fluxo real de finalização de compra.</p>
-        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>WhatsApp</span></div>
+        <p>Landing page com integração WhatsApp.</p>
+        <a href="https://markinferreira32-source.github.io/site-sorveteria/" target="_blank" class="btn">Ver</a>
       </div>
     </div>
 
-    <div class="proj-card">
-      <div class="proj-num">03</div>
-      <div class="proj-img-wrap no-img">
-        <img src="imagem/capa site encontro.png" alt="Site encontroadpv2026">
-        <div class="proj-overlay">
-          <a href="https://encontroadpv2026.netlify.app" target="_blank">Ver Projeto ↗</a>
-        </div>
-      </div>
-      <div class="proj-info">
-        <h3>Encontro de Casais 2026</h3>
-        <p>Landing page de evento com formulário multietapas e integração de pagamento via PIX e boleto (Asaas).</p>
-        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>Asaas</span><span>Node.js</span><span>Render</span></div>
+    <div class="card">
+      <img src="imagem/capa site encontro.png">
+      <div class="card-body">
+        <h3>Encontro de Casais</h3>
+        <p>Landing com pagamento online.</p>
+        <a href="https://encontroadpv2026.netlify.app" target="_blank" class="btn">Ver</a>
       </div>
     </div>
 
-    <div class="proj-card">
-      <div class="proj-num">04</div>
-      <div class="proj-img-wrap no-img">
-        <img src="imagem/capa controle de estoque.png" alt="Contro de Estoque">
-        <div class="proj-overlay">
-          <a href="https://stirring-fenglisu-027ebb.netlify.app" target="_blank">Ver Projeto ↗</a>
-        </div>
-      </div>
-      <div class="proj-info">
+    <div class="card">
+      <img src="imagem/capa controle de estoque.png">
+      <div class="card-body">
         <h3>Controle de Estoque</h3>
-        <p>Sistema web para cadastro, consulta e movimentação de peças em estoque.</p>
-        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+        <p>Sistema web funcional.</p>
+        <a href="https://stirring-fenglisu-027ebb.netlify.app" target="_blank" class="btn">Ver</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<section class="cta-section reveal">
-  <div class="cta-inner">
-    <p class="cta-eyebrow">— Pronto para começar?</p>
-    <h2>Tem um projeto em mente?</h2>
-    <a href="https://wa.me/5547996140249" target="_blank" class="btn-primary btn-lg">Entrar em contato ↗</a>
-  </div>
+<section class="container reveal" id="contato" style="text-align:center">
+  <h2>Vamos trabalhar juntos?</h2>
+  <a href="https://wa.me/5547996140249" class="btn">Falar no WhatsApp</a>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <span class="logo">M<span class="accent">.</span>A</span>
-    <span class="footer-copy">© 2026 — Marco Antônio</span>
-    <div class="footer-links">
-      <a href="https://github.com/markinferreira32-source" target="_blank">GitHub</a>
-    </div>
-  </div>
+  <p>© 2026 Marco Antônio</p>
 </footer>
 
-<script src="script.js"></script>
+<a href="https://wa.me/5547996140249" class="whats">💬</a>
+
+<script>
+// typing
+const text = "Marco Antônio";
+let i = 0;
+function typing(){
+ if(i < text.length){
+  document.getElementById("typing").innerHTML += text.charAt(i);
+  i++;
+  setTimeout(typing,80);
+ }
+}
+typing();
+
+// reveal
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
